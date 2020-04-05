@@ -10,4 +10,29 @@ object Utils {
 
         return Pair(firstName, lastName)
     }
+
+    fun toInitials(firstName: String? = null, lastName: String? = ""): String? {
+
+        val firstIn = if (firstName != null) {
+            if (firstName.trim().isNotEmpty()) {
+                firstName.substring(0,1).toUpperCase()
+            } else {
+                ""
+            }
+        } else {
+            ""
+        }
+
+        val secondIn = if (lastName != null) {
+            if (lastName.trim().isNotEmpty()) {
+                lastName.substring(0,1).toUpperCase()
+            } else {
+                ""
+            }
+        } else {
+            ""
+        }
+
+        return firstIn+secondIn
+    }
 }
