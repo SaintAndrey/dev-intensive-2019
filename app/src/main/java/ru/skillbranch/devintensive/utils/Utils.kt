@@ -1,6 +1,5 @@
 package ru.skillbranch.devintensive.utils
 
-import android.service.voice.AlwaysOnHotwordDetector
 import ru.skillbranch.devintensive.extensions.translitChar
 
 object Utils {
@@ -48,13 +47,13 @@ object Utils {
 
         if (firstName != null) {
             for (char in firstName) {
-                firstNameTranlite += String().translitChar(char)
+                firstNameTranlite += translitChar(char)
             }
         }
 
         if (lastName != null) {
             for (char in lastName) {
-                lastNameTranlite += String().translitChar(char)
+                lastNameTranlite += translitChar(char)
             }
         }
 

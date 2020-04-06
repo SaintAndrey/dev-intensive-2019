@@ -36,4 +36,14 @@ private val ALPHABET_TRANSLIT = hashMapOf<String, String>(
     "я" to "ya"
 )
 
-fun String.translitChar(char: Char) = if ("${char.toLowerCase()}" in ALPHABET_TRANSLIT.keys) ALPHABET_TRANSLIT["${char.toLowerCase()}"] else "${char.toLowerCase()}"
+fun translitChar(char: Char) = if ("${char.toLowerCase()}" in ALPHABET_TRANSLIT.keys) ALPHABET_TRANSLIT["${char.toLowerCase()}"] else "${char.toLowerCase()}"
+
+fun String.truncate(count: Int = 16): String  {
+
+    val len = this.trim().length
+
+    return when {
+        (len > count) -> substring(0, count).trim() + "..."
+        else -> this
+    }
+}
