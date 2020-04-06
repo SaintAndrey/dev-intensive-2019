@@ -1,5 +1,8 @@
 package ru.skillbranch.devintensive.utils
 
+import android.service.voice.AlwaysOnHotwordDetector
+import ru.skillbranch.devintensive.extensions.translitChar
+
 object Utils {
 
     fun parseFullName(fullName: String?): Pair<String?, String?> {
@@ -34,5 +37,27 @@ object Utils {
         }
 
         return firstIn+secondIn
+    }
+
+    fun transliteration(payload: String, divider: String = " "): String {
+
+        val (firstName, lastName) = parseFullName(payload)
+
+        var firstNameTranlite = ""
+        var lastNameTranlite = ""
+
+        if (firstName != null) {
+            for (char in firstName) {
+                firstNameTranlite += String().translitChar(char)
+            }
+        }
+
+        if (lastName != null) {
+            for (char in lastName) {
+                lastNameTranlite += String().translitChar(char)
+            }
+        }
+
+        return firstNameTranlite.capitalize() + divider + lastNameTranlite.capitalize()
     }
 }
